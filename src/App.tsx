@@ -3,19 +3,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Github, 
-  Linkedin, 
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Github,
+  Linkedin,
   X,
   Instagram,
   Cloud,
-  ExternalLink, 
-  Terminal, 
-  Globe, 
-  Server, 
-  Cpu, 
+  ExternalLink,
+  Terminal,
+  Globe,
+  Server,
+  Cpu,
   ChevronRight,
   Menu,
   X as CloseIcon,
@@ -24,8 +24,8 @@ import {
   Brain,
   Shield,
   Search,
-  Microscope
-} from 'lucide-react';
+  Microscope,
+} from "lucide-react";
 
 // --- Types ---
 interface Project {
@@ -50,77 +50,88 @@ const TIMELINE: TimelineItem[] = [
     year: "2023 - Present",
     title: "Staff Software Engineer",
     company: "Google",
-    description: "I work on cutting-edge technologies to build and improve products that impact users globally. My role involves AI, backend systems, static/dynamic analysis of malware at scale. ",
-    tags: ["Malware Analysis", "Leadership", "Security"]
+    description:
+      "I work on cutting-edge technologies to build and improve products that impact users globally. My role involves AI, backend systems, static/dynamic analysis of malware at scale. ",
+    tags: ["Malware Analysis", "Leadership", "Security"],
   },
   {
     year: "2019 - 2023",
     title: "Senior Software Engineer",
     company: "Google",
-    description: "Advanced systems engineering and security infrastructure development within the Google/VirusTotal ecosystem.",
-    tags: ["Systems", "Security", "Cloud"]
+    description:
+      "Advanced systems engineering and security infrastructure development within the Google/VirusTotal ecosystem.",
+    tags: ["Systems", "Security", "Cloud"],
   },
   {
     year: "2014 - 2019",
     title: "Software Engineer & Consultant",
     company: "Google / VirusTotal / Chronicle",
-    description: "Technical Solutions Consultant and Software Engineer focusing on security integrations and MacOS sandboxing tools.",
-    tags: ["MacOS", "Integration", "Security"]
+    description:
+      "Technical Solutions Consultant and Software Engineer focusing on security integrations and MacOS sandboxing tools.",
+    tags: ["MacOS", "Integration", "Security"],
   },
   {
     year: "2013",
     title: "Principal Software Engineer",
     company: "x.o.ware, Inc.",
-    description: "Developed embedded Linux product components including kernel drivers for HMAC SHA acceleration and Yocto build layers.",
-    tags: ["Kernel", "Embedded", "Yocto"]
+    description:
+      "Developed embedded Linux product components including kernel drivers for HMAC SHA acceleration and Yocto build layers.",
+    tags: ["Kernel", "Embedded", "Yocto"],
   },
   {
     year: "2010 - 2013",
     title: "Senior Programmer Analyst",
     company: "Travel Technology Systems",
-    description: "Data mining and development of massive travel databases (>1B rows) using MySQL, Cassandra, and C/C++.",
-    tags: ["Big Data", "NoSQL", "C++"]
+    description:
+      "Data mining and development of massive travel databases (>1B rows) using MySQL, Cassandra, and C/C++.",
+    tags: ["Big Data", "NoSQL", "C++"],
   },
   {
     year: "2007 - 2010",
     title: "Senior Software Engineer",
     company: "Iron-gate",
-    description: "Developed software for Linux-based embedded network appliances (Router, Firewall, VPN) on Intel XScale ARM.",
-    tags: ["Networking", "ARM", "VPN"]
+    description:
+      "Developed software for Linux-based embedded network appliances (Router, Firewall, VPN) on Intel XScale ARM.",
+    tags: ["Networking", "ARM", "VPN"],
   },
   {
     year: "2000 - 2007",
     title: "Software / Electronics Engineer",
     company: "Degree Controls",
-    description: "Developed air flow sensor products and industrial control systems. Holder of US Patent #6,829,930.",
-    tags: ["Sensors", "Patents", "Control Systems"]
+    description:
+      "Developed air flow sensor products and industrial control systems. Holder of US Patent #6,829,930.",
+    tags: ["Sensors", "Patents", "Control Systems"],
   },
   {
     year: "1995 - 2000",
     title: "Computer Engineering",
     company: "South Dakota Mines",
-    description: "B.S. in Computer Engineering. Early career included programming for High Plains Center for Tech and managing KTEQ Radio.",
-    tags: ["Education", "Engineering", "Leadership"]
-  }
+    description:
+      "B.S. in Computer Engineering. Early career included programming for High Plains Center for Tech and managing KTEQ Radio.",
+    tags: ["Education", "Engineering", "Leadership"],
+  },
 ];
 const PROJECTS: Project[] = [
   {
     title: "Open Source Networking",
-    description: "Contributions to various Linux networking tools and kernel drivers, focusing on performance and reliability.",
+    description:
+      "Contributions to various Linux networking tools and kernel drivers, focusing on performance and reliability.",
     tags: ["C", "Linux", "Networking", "Kernel"],
-    github: "https://github.com/karlhiramoto"
+    github: "https://github.com/karlhiramoto",
   },
   {
     title: "Embedded Systems Development",
-    description: "Custom firmware and driver development for specialized hardware platforms.",
+    description:
+      "Custom firmware and driver development for specialized hardware platforms.",
     tags: ["C++", "Embedded", "RTOS", "Drivers"],
   },
   {
     title: "Hiramoto Hosting",
-    description: "A personal project providing managed web and email hosting services for family and small businesses.",
+    description:
+      "A personal project providing managed web and email hosting services for family and small businesses.",
     tags: ["DevOps", "Linux", "Postfix", "Nginx"],
-    link: "http://hiramoto.org"
-  }
+    link: "http://hiramoto.org",
+  },
 ];
 
 const SKILLS = [
@@ -142,16 +153,18 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans selection:bg-orange-500/30 selection:text-orange-200">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md border-b border-zinc-800 py-4' : 'bg-transparent py-6'}`}>
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#0a0a0a]/80 backdrop-blur-md border-b border-zinc-800 py-4" : "bg-transparent py-6"}`}
+      >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="text-xl font-bold tracking-tighter flex items-center gap-2"
@@ -164,18 +177,18 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
-              <a 
-                key={item} 
+            {["About", "Skills", "Projects", "Contact"].map((item) => (
+              <a
+                key={item}
                 href={`#${item.toLowerCase()}`}
                 className="hover:text-orange-500 transition-colors"
               >
                 {item}
               </a>
             ))}
-            <a 
-              href="https://github.com/karlhiramoto" 
-              target="_blank" 
+            <a
+              href="https://github.com/karlhiramoto"
+              target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full transition-all flex items-center gap-2"
             >
@@ -185,7 +198,10 @@ export default function App() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden text-zinc-400" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="md:hidden text-zinc-400"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <CloseIcon /> : <Menu />}
           </button>
         </div>
@@ -201,10 +217,10 @@ export default function App() {
             className="fixed inset-0 z-40 bg-[#0a0a0a] pt-24 px-6 md:hidden"
           >
             <div className="flex flex-col gap-6 text-2xl font-bold">
-              {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
-                <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
+              {["About", "Skills", "Projects", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
                   onClick={() => setIsMenuOpen(false)}
                   className="hover:text-orange-500"
                 >
@@ -242,11 +258,13 @@ export default function App() {
                   </span>
                 </h1>
                 <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-                  Engineer dedicated to creating exceptional systems in software and electronics. 
-                  Specializing in malware analysis, Linux/Unix systems, embedded development, and high-performance networking.
+                  Engineer dedicated to creating exceptional systems in software
+                  and electronics. Specializing in malware analysis, Linux/Unix
+                  systems, embedded development, and high-performance
+                  networking.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                  <a 
+                  <a
                     href="#projects"
                     className="w-full sm:w-auto px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 group"
                   >
@@ -254,19 +272,49 @@ export default function App() {
                     <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                   <div className="flex items-center gap-4">
-                    <a href="https://github.com/karlhiramoto" target="_blank" rel="noopener noreferrer" className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all" title="GitHub">
+                    <a
+                      href="https://github.com/karlhiramoto"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all"
+                      title="GitHub"
+                    >
                       <Github className="w-6 h-6" />
                     </a>
-                    <a href="https://linkedin.com/in/karlhiramoto" target="_blank" rel="noopener noreferrer" className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all" title="LinkedIn">
+                    <a
+                      href="https://linkedin.com/in/karlhiramoto"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all"
+                      title="LinkedIn"
+                    >
                       <Linkedin className="w-6 h-6" />
                     </a>
-                    <a href="https://x.com/karlhiramoto" target="_blank" rel="noopener noreferrer" className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all" title="X (Twitter)">
+                    <a
+                      href="https://x.com/karlhiramoto"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all"
+                      title="X (Twitter)"
+                    >
                       <X className="w-6 h-6" />
                     </a>
-                    <a href="https://bsky.app/profile/karlh.bsky.social" target="_blank" rel="noopener noreferrer" className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all" title="Bluesky">
+                    <a
+                      href="https://bsky.app/profile/karlh.bsky.social"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all"
+                      title="Bluesky"
+                    >
                       <Cloud className="w-6 h-6" />
                     </a>
-                    <a href="https://www.instagram.com/karlhiramoto/" target="_blank" rel="noopener noreferrer" className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all" title="Instagram">
+                    <a
+                      href="https://www.instagram.com/karlhiramoto/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-xl transition-all"
+                      title="Instagram"
+                    >
                       <Instagram className="w-6 h-6" />
                     </a>
                   </div>
@@ -283,20 +331,20 @@ export default function App() {
                   {/* Decorative elements */}
                   <div className="absolute -inset-4 bg-gradient-to-tr from-orange-600 to-blue-600 rounded-[40px] blur-2xl opacity-20 animate-pulse" />
                   <div className="absolute inset-0 bg-zinc-900 rounded-[32px] rotate-6 border border-zinc-800 -z-10" />
-                  
+
                   {/* Headshot Image */}
                   <div className="w-full h-full rounded-[32px] overflow-hidden border-2 border-zinc-800 shadow-2xl relative bg-zinc-900">
-                    <img 
-                      src="/images/karl2.png" 
-                      alt="Karl Hiramoto" 
+                    <img
+                      src="images/profile.jpg"
+                      alt="Karl Hiramoto"
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 to-transparent" />
                   </div>
-                  
+
                   {/* Floating Badge */}
-                  <motion.div 
+                  <motion.div
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.8 }}
@@ -306,8 +354,12 @@ export default function App() {
                       <Terminal className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Status</div>
-                      <div className="text-xs font-bold text-white">Innovating @ Google</div>
+                      <div className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">
+                        Status
+                      </div>
+                      <div className="text-xs font-bold text-white">
+                        Innovating @ Google
+                      </div>
                     </div>
                   </motion.div>
                 </div>
@@ -315,13 +367,15 @@ export default function App() {
             </div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 1 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           >
-            <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Scroll to explore</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">
+              Scroll to explore
+            </span>
             <div className="w-px h-12 bg-gradient-to-b from-orange-500 to-transparent" />
           </motion.div>
         </section>
@@ -330,9 +384,12 @@ export default function App() {
         <section id="about" className="py-32 bg-[#0d0d0d]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Professional Journey</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Professional Journey
+              </h2>
               <p className="text-zinc-500 max-w-xl mx-auto">
-                A timeline of technical evolution, from embedded systems to AI-driven security.
+                A timeline of technical evolution, from embedded systems to
+                AI-driven security.
               </p>
             </div>
 
@@ -349,7 +406,7 @@ export default function App() {
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
                     className={`relative flex flex-col md:flex-row items-center gap-8 ${
-                      idx % 2 === 0 ? 'md:flex-row-reverse' : ''
+                      idx % 2 === 0 ? "md:flex-row-reverse" : ""
                     }`}
                   >
                     {/* Dot */}
@@ -362,8 +419,11 @@ export default function App() {
                           {item.year}
                         </span>
                         <div className="flex gap-2">
-                          {item.tags?.map(tag => (
-                            <span key={tag} className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">
+                          {item.tags?.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider"
+                            >
                               #{tag}
                             </span>
                           ))}
@@ -394,9 +454,12 @@ export default function App() {
         <section id="skills" className="py-32">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Core Expertise</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Core Expertise
+              </h2>
               <p className="text-zinc-500 max-w-xl mx-auto">
-                Specialized technical skills developed through years of hands-on experience and open source contribution.
+                Specialized technical skills developed through years of hands-on
+                experience and open source contribution.
               </p>
             </div>
 
@@ -425,13 +488,16 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
               <div>
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                  Featured Projects
+                </h2>
                 <p className="text-zinc-500 max-w-xl">
-                  A selection of open source contributions and personal technical ventures.
+                  A selection of open source contributions and personal
+                  technical ventures.
                 </p>
               </div>
-              <a 
-                href="https://github.com/karlhiramoto" 
+              <a
+                href="https://github.com/karlhiramoto"
                 className="text-orange-500 font-bold flex items-center gap-2 hover:underline"
               >
                 View all on GitHub <ExternalLink className="w-4 h-4" />
@@ -455,12 +521,18 @@ export default function App() {
                       </div>
                       <div className="flex gap-2">
                         {project.github && (
-                          <a href={project.github} className="text-zinc-500 hover:text-white transition-colors">
+                          <a
+                            href={project.github}
+                            className="text-zinc-500 hover:text-white transition-colors"
+                          >
                             <Github className="w-5 h-5" />
                           </a>
                         )}
                         {project.link && (
-                          <a href={project.link} className="text-zinc-500 hover:text-white transition-colors">
+                          <a
+                            href={project.link}
+                            className="text-zinc-500 hover:text-white transition-colors"
+                          >
                             <ExternalLink className="w-5 h-5" />
                           </a>
                         )}
@@ -473,8 +545,11 @@ export default function App() {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 bg-zinc-800 text-zinc-400 text-[10px] font-bold uppercase tracking-wider rounded-full">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-zinc-800 text-zinc-400 text-[10px] font-bold uppercase tracking-wider rounded-full"
+                        >
                           {tag}
                         </span>
                       ))}
@@ -494,7 +569,7 @@ export default function App() {
                 <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-[100px]" />
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-black rounded-full blur-[100px]" />
               </div>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -508,19 +583,49 @@ export default function App() {
                   Find me across the web or reach out via LinkedIn.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-6">
-                  <a href="https://linkedin.com/in/karlhiramoto" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all" title="LinkedIn">
+                  <a
+                    href="https://linkedin.com/in/karlhiramoto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all"
+                    title="LinkedIn"
+                  >
                     <Linkedin className="w-6 h-6" />
                   </a>
-                  <a href="https://github.com/karlhiramoto" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all" title="GitHub">
+                  <a
+                    href="https://github.com/karlhiramoto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all"
+                    title="GitHub"
+                  >
                     <Github className="w-6 h-6" />
                   </a>
-                  <a href="https://x.com/karlhiramoto" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all" title="X (Twitter)">
+                  <a
+                    href="https://x.com/karlhiramoto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all"
+                    title="X (Twitter)"
+                  >
                     <X className="w-6 h-6" />
                   </a>
-                  <a href="https://bsky.app/profile/karlh.bsky.social" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all" title="Bluesky">
+                  <a
+                    href="https://bsky.app/profile/karlh.bsky.social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all"
+                    title="Bluesky"
+                  >
                     <Cloud className="w-6 h-6" />
                   </a>
-                  <a href="https://www.instagram.com/karlhiramoto/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all" title="Instagram">
+                  <a
+                    href="https://www.instagram.com/karlhiramoto/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 bg-orange-700/50 hover:bg-orange-700 text-white rounded-2xl flex items-center justify-center transition-all"
+                    title="Instagram"
+                  >
                     <Instagram className="w-6 h-6" />
                   </a>
                 </div>
@@ -537,9 +642,20 @@ export default function App() {
             © {new Date().getFullYear()} Karl Hiramoto. All rights reserved.
           </div>
           <div className="flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-zinc-500">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="https://linkedin.com/in/karlhiramoto" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Contact</a>
+            <a href="#" className="hover:text-white transition-colors">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Terms
+            </a>
+            <a
+              href="https://linkedin.com/in/karlhiramoto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Contact
+            </a>
           </div>
         </div>
       </footer>
