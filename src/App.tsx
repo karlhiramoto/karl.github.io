@@ -25,6 +25,7 @@ import {
   Shield,
   Search,
   Microscope,
+  Gamepad2,
 } from "lucide-react";
 
 // --- Types ---
@@ -187,6 +188,13 @@ export default function App() {
               </a>
             ))}
             <a
+              href="/games/"
+              className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1.5 font-semibold"
+            >
+              <Gamepad2 className="w-4 h-4" />
+              Games
+            </a>
+            <a
               href="https://github.com/karlhiramoto"
               target="_blank"
               rel="noopener noreferrer"
@@ -227,6 +235,14 @@ export default function App() {
                   {item}
                 </a>
               ))}
+              <a
+                href="/games/"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-orange-400 hover:text-orange-300 flex items-center gap-3"
+              >
+                <Gamepad2 className="w-6 h-6" />
+                Games
+              </a>
             </div>
           </motion.div>
         )}
@@ -503,6 +519,64 @@ export default function App() {
                 View all on GitHub <ExternalLink className="w-4 h-4" />
               </a>
             </div>
+
+            {/* Featured Games Spotlight */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-12 relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-950/30 via-zinc-900 to-zinc-900 border border-orange-500/30 p-8 lg:p-10"
+            >
+              <div className="grid lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <Gamepad2 className="w-3.5 h-3.5" />
+                    New Web Games &amp; Simulators
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                    Playable Web Games Hub
+                  </h3>
+                  <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 max-w-xl">
+                    Explore original games written in TypeScript and HTML5 Canvas, featuring 120 Hz 3-DOF marine hydrodynamics &amp; Rapier2D physics (<span className="text-zinc-200">Harbor Master</span>), 3D procedural tiles &amp; solvable deals (<span className="text-zinc-200">Mahjong Solitaire</span>), and an authentic Andalusian pharmacy simulation (<span className="text-zinc-200">Farmacia Gallego</span>).
+                  </p>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <a
+                      href="/games/"
+                      className="px-6 py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-orange-600/25"
+                    >
+                      <Gamepad2 className="w-4 h-4" />
+                      <span>Explore All Games (/games/)</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+                <div className="lg:col-span-5 grid grid-cols-3 gap-3">
+                  {[
+                    { name: "Harbor Master", img: "images/games/harbor-master.webp" },
+                    { name: "Mahjong", img: "images/games/mahjong.webp" },
+                    { name: "Farmacia Gallego", img: "images/games/botica.webp" },
+                  ].map((g) => (
+                    <a
+                      key={g.name}
+                      href="/games/"
+                      className="group relative rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 aspect-[4/3] block hover:border-orange-500/50 transition-all shadow-md"
+                    >
+                      <img
+                        src={g.img}
+                        alt={g.name}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2">
+                        <span className="text-[10px] font-bold text-zinc-200 truncate">
+                          {g.name}
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {PROJECTS.map((project, idx) => (
